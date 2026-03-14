@@ -216,6 +216,58 @@ class DocumentClassifier:
                 
                 shutil.move(str(file_path), str(target_folder / file_path.name))
                 print(f"已分类: {file_path.name} -> {category}/")
+
+
+### 5.1.6 实用代码：文档版本控制与协作系统
+
+```python
+"""
+文档版本控制与协作系统
+基于Git的文档版本管理，支持多人协作和变更追踪
+"""
+
+import git
+from git import Repo
+from datetime import datetime
+from pathlib import Path
+
+class DocumentVersionControl:
+    """文档版本控制系统"""
+    
+    def __init__(self, repo_path: str):
+        self.repo_path = Path(repo_path)
+        self.repo = self._init_repo()
+    
+    def _init_repo(self) -> Repo:
+        """初始化或加载Git仓库"""
+        if (self.repo_path / '.git').exists():
+            return Repo(self.repo_path)
+        else:
+            return Repo.init(self.repo_path)
+    
+    def commit_document(self, file_path: str, message: str, author: dict = None):
+        """提交文档变更"""
+        self.repo.index.add([str(file_path)])
+        
+        if author:
+            git_author = git.Actor(author['name'], author['email'])
+        else:
+            git_author = git.Actor('System', 'system@example.com')
+        
+        commit = self.repo.index.commit(message, author=git_author)
+        return commit.hexsha
+    
+    def get_document_history(self, file_path: str) -> list:
+        """获取文档变更历史"""
+        history = []
+        for commit in self.repo.iter_commits(paths=file_path):
+            history.append({
+                'commit_id': commit.hexsha[:8],
+                'author': commit.author.name,
+                'date': commit.authored_datetime,
+                'message': commit.message
+            })
+        return history
 ```
 
 ## 5.2 技术体系与标准化工具（支撑L2→L3跃迁）
