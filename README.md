@@ -48,6 +48,13 @@
 ### 第4章：不同角色详解
 4.1 项目经理（PM）  
 4.2 水力模型架构师  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.0 水力模型架构概述  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.1 架构制定与演进：以美国国家水模型（NWM）为例  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.2 为什么需要架构师  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.3 架构师的核心职责  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.4 架构师的能力要求  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.5 AI赋能架构师  
+&nbsp;&nbsp;&nbsp;&nbsp;4.2.6 【实操指南】架构师技能提升路径  
 4.3 水力模型工程师  
 4.4 数据分析师  
 4.5 AI工程师  
